@@ -36,29 +36,18 @@ public class SwingBoard extends JPanel implements Drawable {
 	@Override
 	public void draw( Figure f ) {
 		for( FigureComponent comp : f.getComponents() ){
-			//
+			//code that takes a comp and turns it into an awt shape, then adds it to shapeCashe
 		}
 	}
 
-	@Override
-	public double getXMin() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public double getXMax() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public double getYMin() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public double getYMax() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
+	@Override public double getXMin() {
+		return minX; }
+	@Override public double getXMax() {
+		return maxX; }
+	@Override public double getYMin() {
+		return minY; }
+	@Override public double getYMax() {
+		return maxY; }
 	
 	@Override
 	public void paintComponent(Graphics g){
