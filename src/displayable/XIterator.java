@@ -10,27 +10,38 @@ import displaying.Drawable;
  *
  * @author jamesthomas
  */
-public class XIterator implements Iterator<Double>{
+class XIterator implements Iterator<Double>{
 	
 	private static final int numPoints = 200;
 	
+	private double currentX;
+	private double deltaX;
+	private double maxX;
+	
 	public XIterator( Drawable d ){
-		
+		currentX = d.getXMin();
+		deltaX = ( d.getXMax()-d.getXMin() )/ numPoints;
+		maxX = d.getXMax();
 	}
 
 	@Override
 	public boolean hasNext() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		return currentX <= maxX;
 	}
 
 	@Override
 	public Double next() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		currentX += deltaX;
+		return currentX;
+	}
+	public Double peek(){
+		return currentX;
 	}
 
 	@Override
 	public void remove() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet. Probably won't ever be supported"); 
+		//To change body of generated methods, choose Tools | Templates.
 	}
 	
 }

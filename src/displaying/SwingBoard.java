@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Shape;
+import java.awt.geom.*;
 import java.util.LinkedList;
 /**
  *
@@ -39,6 +40,7 @@ public class SwingBoard extends JPanel implements Drawable {
 	public void draw( Figure f ) {
 		for( FigureComponent comp : f.getComponents() ){
 			//code that takes a comp and turns it into an awt shape, then adds it to shapeCache
+			shapeCache.add(comp.swingShape(this));
 		}
 	}
 
@@ -51,6 +53,13 @@ public class SwingBoard extends JPanel implements Drawable {
 	@Override public double getYMax() {
 		return maxY; }
 	
+	public double xNumToPx( double xNum){
+		return (xNum-minX) * 400 / (maxX-minX);
+	}
+	public double yNumToPx( double yNum){
+		return (maxY-yNum) * 400 / (maxY-minY);
+	}
+	
 	public void resentPaint(){
 		shapeCache = new LinkedList<Shape>();
 	}
@@ -59,21 +68,13 @@ public class SwingBoard extends JPanel implements Drawable {
 	public void paintComponent(Graphics g){
 		Graphics2D g2 = (Graphics2D) g;
 		
+		g2.draw( new Ellipse2D.Double(0,0,10,10) );
+		
 		for( Shape s : shapeCache){
 			
+			g2.draw(s);
 		}
 		
 	}
 	
-	/* George code:
-	private float transformX(double x){ 
-		return (float)((x - getXMin())/getXSize() * getWidth() ); 
-	} 
-	private float transformY(double y){ 
-		return remapNumY(y,(float)getYMin(),(float)getYSize(),
-				(float)getHeight(),-(float)getHeight() ); 
-	} 
-	private float remapNumY(double y, float yMin, float ySize, float newYMin, float newYSize){ 
-		return (float)((y-yMin)*newYSize/ySize+newYMin); 
-	}*/
 }

@@ -4,8 +4,10 @@
  */
 package displaying;
 
+import java.awt.Shape;
 
-public class FigureTriangle implements FigureShape {
+
+public class TriangleComponent implements ShapeComponent {
 
 	@Override
 	public double getWeight() {
@@ -14,6 +16,11 @@ public class FigureTriangle implements FigureShape {
 
 	@Override
 	public boolean isFilled() {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public Shape swingShape(SwingBoard b) {
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 	

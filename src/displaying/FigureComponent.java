@@ -4,6 +4,8 @@
  */
 package displaying;
 
+import java.awt.Shape;
+
 /**
  *
  * @author jamesthomas
@@ -11,4 +13,5 @@ package displaying;
 public interface FigureComponent {
 	public double getWeight();
 	
+	public Shape swingShape( SwingBoard b );
 }

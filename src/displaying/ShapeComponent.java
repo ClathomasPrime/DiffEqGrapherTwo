@@ -5,6 +5,6 @@
 package displaying;
 
 
-public interface FigureShape extends FigureComponent {
+public interface ShapeComponent extends FigureComponent {
 	public boolean isFilled();
 }

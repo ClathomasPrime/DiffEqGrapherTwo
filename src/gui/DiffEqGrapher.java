@@ -5,6 +5,8 @@
 package gui;
 
 import operation.*;
+import displayable.*;
+import displaying.SwingBoard;
 import javax.swing.JFrame;
 /**
  *
@@ -20,6 +22,19 @@ public class DiffEqGrapher extends JFrame{
 		setLocationRelativeTo(null);
 		setTitle("ForceBoard");
 		
+		SwingBoard board = new SwingBoard();
+		add( board );
+		
+		
+		try {
+			Function func = new Function("sin(x^2)");
+			func.drawTo(board);
+			board.repaint();
+		} catch ( ParseException ex ) {
+			System.out.println( "Parse Error" );
+		}
+		
+		
 		setVisible(true);
 	}
 	
@@ -28,13 +43,13 @@ public class DiffEqGrapher extends JFrame{
 	 */
 	public static void main(String[] args) {
 		
-		try {
+		/* try {
 			Operation op = Operation.parseInput("sin(x^y''-y)");
 			double [] cor = {2.0,1.0,4.0,1.5};
 			System.out.println( op.value( new Point( cor ) ) );
 		} catch ( ParseException ex ) {
 			
-		}
+		}*/
 		
 		window = new DiffEqGrapher();
 	}
