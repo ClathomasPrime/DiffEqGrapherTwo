@@ -20,9 +20,11 @@ public class SwingBoard extends JPanel implements Drawable {
 	private double maxX;
 	private double maxY;
 	
-	private LinkedList<Shape> shapeCashe = new LinkedList<Shape>();
+	private LinkedList<Shape> shapeCache = new LinkedList<Shape>();
 	
 	public SwingBoard( double minX, double maxX, double minY, double maxY ){
+		super(true);
+		
 		this.minX = minX;
 		this.minY = minY;
 		
@@ -36,7 +38,7 @@ public class SwingBoard extends JPanel implements Drawable {
 	@Override
 	public void draw( Figure f ) {
 		for( FigureComponent comp : f.getComponents() ){
-			//code that takes a comp and turns it into an awt shape, then adds it to shapeCashe
+			//code that takes a comp and turns it into an awt shape, then adds it to shapeCache
 		}
 	}
 
@@ -49,11 +51,29 @@ public class SwingBoard extends JPanel implements Drawable {
 	@Override public double getYMax() {
 		return maxY; }
 	
+	public void resentPaint(){
+		shapeCache = new LinkedList<Shape>();
+	}
+	
 	@Override
 	public void paintComponent(Graphics g){
 		Graphics2D g2 = (Graphics2D) g;
 		
-		
+		for( Shape s : shapeCache){
+			
+		}
 		
 	}
+	
+	/* George code:
+	private float transformX(double x){ 
+		return (float)((x - getXMin())/getXSize() * getWidth() ); 
+	} 
+	private float transformY(double y){ 
+		return remapNumY(y,(float)getYMin(),(float)getYSize(),
+				(float)getHeight(),-(float)getHeight() ); 
+	} 
+	private float remapNumY(double y, float yMin, float ySize, float newYMin, float newYSize){ 
+		return (float)((y-yMin)*newYSize/ySize+newYMin); 
+	}*/
 }
