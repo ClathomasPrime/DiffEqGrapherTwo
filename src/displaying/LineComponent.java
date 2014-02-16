@@ -27,6 +27,7 @@ public class LineComponent implements FigureComponent{
 		return 4;
 	}
 
+	@Override
 	public Shape swingShape( SwingBoard b ) {
 		return new Line2D.Double(b.xNumToPx(startX),b.yNumToPx(startY),
 				b.xNumToPx(endX),b.yNumToPx(endY));

@@ -56,11 +56,19 @@ public class SwingBoard extends JPanel implements Drawable {
 	@Override public double getYMax() {
 		return maxY; }
 	
+	@Override
 	public double xNumToPx( double xNum){
 		return (xNum-minX) * pixelWidth / (maxX-minX);
 	}
+	@Override
 	public double yNumToPx( double yNum){
 		return (maxY-yNum) * pixelHeight / (maxY-minY);
+	}
+	public double deltaXNumToPx( double dX){
+		return dX * pixelWidth / (maxX-minX);
+	}
+	public double deltaYNumToPx( double dY){
+		return dY * pixelHeight / (maxY-minY);
 	}
 	
 	public void resentPaint(){

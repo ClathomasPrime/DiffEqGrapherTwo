@@ -17,4 +17,7 @@ public interface Drawable {
 	public double getXMax();
 	public double getYMin();
 	public double getYMax();
+	
+	public double xNumToPx( double xNum);
+	public double yNumToPx( double yNum);
 }
