@@ -6,6 +6,9 @@ package displaying;
 
 import javax.swing.JPanel;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.util.LinkedList;
 /**
  *
  * @author jamesthomas
@@ -17,6 +20,7 @@ public class SwingBoard extends JPanel implements Drawable {
 	private double maxX;
 	private double maxY;
 	
+	private LinkedList<Shape> shapeCashe = new LinkedList<Shape>();
 	
 	public SwingBoard( double minX, double maxX, double minY, double maxY ){
 		this.minX = minX;
@@ -31,7 +35,9 @@ public class SwingBoard extends JPanel implements Drawable {
 
 	@Override
 	public void draw( Figure f ) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		for( FigureComponent comp : f.getComponents() ){
+			//
+		}
 	}
 
 	@Override
@@ -56,6 +62,9 @@ public class SwingBoard extends JPanel implements Drawable {
 	
 	@Override
 	public void paintComponent(Graphics g){
+		Graphics2D g2 = (Graphics2D) g;
+		
+		
 		
 	}
 }
