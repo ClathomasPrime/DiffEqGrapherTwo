@@ -27,8 +27,12 @@ public class DiffEqGrapher extends JFrame{
 		
 		
 		try {
-			Function func = new Function("sin(x^2)");
-			func.drawTo(board);
+			/*Function func = new Function("abs(x)^(x)");
+			func.drawTo(board);*/
+			
+			VectorField vector = new VectorField("cos(x)","sin(y)");
+			vector.drawTo(board);
+			
 			board.repaint();
 		} catch ( ParseException ex ) {
 			System.out.println( "Parse Error" );

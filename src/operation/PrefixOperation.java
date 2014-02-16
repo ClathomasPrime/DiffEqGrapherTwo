@@ -38,6 +38,8 @@ abstract class PrefixOperation extends Operation {
 			
 		} else if ("ln".equals(prefix)){
 			return new Ln(argument);
+		} else if ( "abs".equals(prefix) ){
+			return new Abs(argument);
 		}
 		throw new ParseException("Unrecognized, but possibly present prefix");
 	}

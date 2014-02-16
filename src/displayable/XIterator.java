@@ -12,7 +12,8 @@ import displaying.Drawable;
  */
 class XIterator implements Iterator<Double>{
 	
-	private static final int numPoints = 200;
+	private static final int numPoints = 1000;
+	//I suppose this might be better as an instance field, but I like having it in an easy-to-find place.
 	
 	private double currentX;
 	private double deltaX;

@@ -57,6 +57,7 @@ public abstract class Operation {
 		boolean hasEncounteredParen = false;
 		for( int i=0; i<input.length(); i++ ){
 			char c = input.charAt(i);
+			//System.out.println(c);
 			switch( c ){
 				case '(':
 					parenLevel++;
@@ -66,7 +67,7 @@ public abstract class Operation {
 					}
 					break;
 				case ')':
-					parenLevel++;
+					parenLevel--;
 					break;
 				default: 
 					if( parenLevel==0 ){
@@ -86,10 +87,12 @@ public abstract class Operation {
 		}
 		if( currentBreak == -1){ //No breakpoint found -> prefix, null parens, or invalid
 			try {
-				
+				System.out.println(s);
+				String s1 = s.substring(0,firstParenIndex);
+				String s2 = s.substring(firstParenIndex+1,s.length()-1);
 				Operation op = PrefixOperation.getPrefixOperation(
-						s.substring(0,firstParenIndex),
-						s.substring(firstParenIndex+1,s.length()-1));
+						s1,
+						s2);
 					//either returns succesfully, catch NullParens, or throws ParseError up stack
 				if(')'!=input.charAt(input.length()-1) ){ //this bit of error checking needs some work
 					throw new ParseException();

@@ -16,6 +16,9 @@ import java.util.LinkedList;
  */
 public class SwingBoard extends JPanel implements Drawable {
 	
+	private static final int pixelWidth = 600;
+	private static final int pixelHeight = 600;
+	
 	private double minX;
 	private double minY;
 	private double maxX;
@@ -54,10 +57,10 @@ public class SwingBoard extends JPanel implements Drawable {
 		return maxY; }
 	
 	public double xNumToPx( double xNum){
-		return (xNum-minX) * 400 / (maxX-minX);
+		return (xNum-minX) * pixelWidth / (maxX-minX);
 	}
 	public double yNumToPx( double yNum){
-		return (maxY-yNum) * 400 / (maxY-minY);
+		return (maxY-yNum) * pixelHeight / (maxY-minY);
 	}
 	
 	public void resentPaint(){
@@ -68,7 +71,7 @@ public class SwingBoard extends JPanel implements Drawable {
 	public void paintComponent(Graphics g){
 		Graphics2D g2 = (Graphics2D) g;
 		
-		g2.draw( new Ellipse2D.Double(0,0,10,10) );
+		//g2.draw( new Ellipse2D.Double(0,0,10,10) );
 		
 		for( Shape s : shapeCache){
 			
