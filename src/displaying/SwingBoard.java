@@ -10,6 +10,7 @@ import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.*;
 import java.util.LinkedList;
+import java.awt.RenderingHints;
 /**
  *
  * @author jamesthomas
@@ -34,6 +35,7 @@ public class SwingBoard extends JPanel implements Drawable {
 		
 		this.maxX = maxX;
 		this.maxY = maxY;
+		
 	}
 	public SwingBoard(){
 		this( -5, 5, -5, 5 );
@@ -64,6 +66,12 @@ public class SwingBoard extends JPanel implements Drawable {
 	public double yNumToPx( double yNum){
 		return (maxY-yNum) * pixelHeight / (maxY-minY);
 	}
+	public double xPxToNum (double xPx){
+		return 2;
+	}
+	public double yPxToNum( double yPx){
+		return 3;
+	}
 	public double deltaXNumToPx( double dX){
 		return dX * pixelWidth / (maxX-minX);
 	}
@@ -79,7 +87,12 @@ public class SwingBoard extends JPanel implements Drawable {
 	public void paintComponent(Graphics g){
 		Graphics2D g2 = (Graphics2D) g;
 		
-		//g2.draw( new Ellipse2D.Double(0,0,10,10) );
+		 RenderingHints rh =
+            new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+		rh.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+
+		g2.setRenderingHints(rh);
 		
 		for( Shape s : shapeCache){
 			

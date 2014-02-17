@@ -25,11 +25,11 @@ public class Arrow implements Figure {
 
 	@Override
 	public FigureComponent[] getComponents() {
-		FigureComponent[] f = new FigureComponent[2];
-		f[0] = new DotComponent(startX, startY, 0.1);
+		FigureComponent[] f = new FigureComponent[3];
+		f[0] = new DotComponent(startX, startY, 0.05);
 			//Should probably put radius constant somewhere more visible
 		f[1] = new LineComponent( startX, startY, endX, endY );
-		//f[2] = new DotComponent(endX, endY, 0.2);
+		f[2] = new ArrowHeadComponent(endX, endY, endX-startX, endY-startY);
 		return f;
 	}
 	

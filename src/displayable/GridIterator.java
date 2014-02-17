@@ -15,7 +15,7 @@ import operation.*;
  */
 public class GridIterator implements Iterator<Point>{
 
-	private static final int numPoints = 10;
+	private static final double numPoints = 8;
 	//Yeah this should probably be an instance variable, not a constant
 	//Maybe there should be seperate ones for x and y too
 	

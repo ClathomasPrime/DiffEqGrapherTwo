@@ -22,15 +22,14 @@ public class DiffEqGrapher extends JFrame{
 		setLocationRelativeTo(null);
 		setTitle("ForceBoard");
 		
-		SwingBoard board = new SwingBoard();
+		SwingBoard board = new SwingBoard(-2,1,-2,1);
 		add( board );
-		
 		
 		try {
 			/*Function func = new Function("abs(x)^(x)");
 			func.drawTo(board);*/
 			
-			VectorField vector = new VectorField("cos(x)","sin(y)");
+			VectorField vector = new VectorField("sin(x)","sin(y)");
 			vector.drawTo(board);
 			
 			board.repaint();
