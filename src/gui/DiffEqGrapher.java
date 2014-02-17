@@ -22,15 +22,18 @@ public class DiffEqGrapher extends JFrame{
 		setLocationRelativeTo(null);
 		setTitle("ForceBoard");
 		
-		SwingBoard board = new SwingBoard(-2,1,-2,1);
+		SwingBoard board = new SwingBoard(-1,2,-1,2);
 		add( board );
 		
 		try {
 			/*Function func = new Function("abs(x)^(x)");
 			func.drawTo(board);*/
 			
-			VectorField vector = new VectorField("sin(x)","sin(y)");
-			vector.drawTo(board);
+			//VectorField vector = new VectorField("1/6*y/(x^2+y^2)^0.5","(-1)/6*x/(x^2+y^2)^0.5");
+			//vector.drawTo(board);
+			
+			SlopeField sl = new SlopeField( "(x-y)/(y-2*x)" );
+			sl.drawTo(board);
 			
 			board.repaint();
 		} catch ( ParseException ex ) {

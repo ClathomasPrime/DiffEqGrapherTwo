@@ -15,7 +15,7 @@ import operation.*;
  */
 public class GridIterator implements Iterator<Point>{
 
-	private static final double numPoints = 8;
+	private static final double numPoints = 12;
 	//Yeah this should probably be an instance variable, not a constant
 	//Maybe there should be seperate ones for x and y too
 	
@@ -24,6 +24,7 @@ public class GridIterator implements Iterator<Point>{
 	private double deltaX;
 	private double maxX;
 	
+	private double minY;
 	private double currentY;
 	private double deltaY;
 	private double maxY;
@@ -34,6 +35,7 @@ public class GridIterator implements Iterator<Point>{
 		deltaX = ( d.getXMax()-d.getXMin() )/ numPoints;
 		maxX = d.getXMax();
 		
+		minY = d.getYMin();
 		currentY = d.getYMin();
 		deltaY = ( d.getYMax()-d.getYMin() )/ numPoints;
 		maxY = d.getYMax();
@@ -61,4 +63,13 @@ public class GridIterator implements Iterator<Point>{
 		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 	
+	public double getMaxSlope(){
+		return getBoxHeight()/getBoxWidth();
+	}
+	public double getBoxWidth(){
+		return ((maxX-minX)/numPoints)-0.1;
+	}
+	public double getBoxHeight(){
+		return (maxY-minY)/numPoints-0.1;
+	}
 }

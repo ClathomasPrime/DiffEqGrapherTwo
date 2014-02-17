@@ -11,6 +11,7 @@ import java.awt.Shape;
 import java.awt.geom.*;
 import java.util.LinkedList;
 import java.awt.RenderingHints;
+import java.awt.Color;
 /**
  *
  * @author jamesthomas
@@ -87,17 +88,19 @@ public class SwingBoard extends JPanel implements Drawable {
 	public void paintComponent(Graphics g){
 		Graphics2D g2 = (Graphics2D) g;
 		
-		 RenderingHints rh =
-            new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
+		RenderingHints rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		rh.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-
 		g2.setRenderingHints(rh);
 		
+		g2.setColor( Color.blue );
 		for( Shape s : shapeCache){
 			
 			g2.draw(s);
 		}
+		
+		g2.setColor(Color.black);
+		g2.draw( new Line2D.Double(xNumToPx(minY), yNumToPx(0), xNumToPx(maxY), yNumToPx(0) ) );
+		g2.draw( new Line2D.Double(xNumToPx(0), yNumToPx(minY), xNumToPx(0), yNumToPx(maxY) ) );
 		
 	}
 	

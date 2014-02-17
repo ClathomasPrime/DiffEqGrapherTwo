@@ -101,6 +101,8 @@ public abstract class Operation {
 				//return op;
 			} catch( NullParensException ex){
 				return parseInput( input.substring(1,input.length()-1) );
+			} catch ( StringIndexOutOfBoundsException ex){
+				throw new ParseException();
 			}
 		} else { //Infix operation found
 			return InfixOperation.getInfixOperation(

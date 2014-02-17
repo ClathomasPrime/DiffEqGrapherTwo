@@ -29,8 +29,8 @@ public class ArrowHeadComponent implements FigureComponent{
 
 	@Override
 	public Shape swingShape(SwingBoard b) {
-		double w = 0.05;
-		double h = 0.2;
+		double w = 0.02;
+		double h = 0.08;
 		
 		double theta;
 		if(dX==0){
