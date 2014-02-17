@@ -32,8 +32,9 @@ public class DiffEqGrapher extends JFrame{
 			//VectorField vector = new VectorField("1/6*y/(x^2+y^2)^0.5","(-1)/6*x/(x^2+y^2)^0.5");
 			//vector.drawTo(board);
 			
-			SlopeField sl = new SlopeField( "(x-y)/(y-2*x)" );
+			SlopeField sl = new SlopeField( "y", new Point(0,1) );
 			sl.drawTo(board);
+			sl.drawNumericalSolution(board);
 			
 			board.repaint();
 		} catch ( ParseException ex ) {

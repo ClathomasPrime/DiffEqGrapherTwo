@@ -6,6 +6,7 @@ package displayable;
 
 import java.util.Iterator;
 import displaying.Drawable;
+import operation.Point;
 /**
  *
  * @author jamesthomas
@@ -21,6 +22,11 @@ class XIterator implements Iterator<Double>{
 	
 	public XIterator( Drawable d ){
 		currentX = d.getXMin();
+		deltaX = ( d.getXMax()-d.getXMin() )/ numPoints;
+		maxX = d.getXMax();
+	}
+	public XIterator( Drawable d, Point r0){
+		currentX = r0.getValue(0);
 		deltaX = ( d.getXMax()-d.getXMin() )/ numPoints;
 		maxX = d.getXMax();
 	}
@@ -43,6 +49,10 @@ class XIterator implements Iterator<Double>{
 	public void remove() {
 		throw new UnsupportedOperationException("Not supported yet. Probably won't ever be supported"); 
 		//To change body of generated methods, choose Tools | Templates.
+	}
+	
+	public double getDeltaX(){
+		return deltaX;
 	}
 	
 }
